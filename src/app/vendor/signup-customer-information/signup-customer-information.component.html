@@ -1,0 +1,57 @@
+    <div class="row">
+        <div class="col form-input form-group" style="margin-bottom: 0px;margin-top: 0px;">
+            <label for="ownerOneName">Primary Owner First Name:</label>
+            <input class="form-control" id="ownerOneFirstName" name="ownerOneLastName" type="text" nbInput fullWidth shape="semi-round" placeholder="Owner 1 First Name" [(ngModel)]="enrollment.client.contactInformation.firstName" autocomplete="na">
+        </div>
+        <div class="col form-input form-group" style="margin-bottom: 0px;margin-top: 0px;">
+            <label for="ownerOneLastName">Primary Owner Last Name:</label>
+            <input class="form-control" id="ownerOneLastName" name="ownerOneLastName" type="text" nbInput fullWidth shape="semi-round" placeholder="Owner 1 Last Name" [(ngModel)]="enrollment.client.contactInformation.lastName" autocomplete="na">
+        </div>
+        
+    </div>
+
+    <div class="form-input form-group">
+        <label for="ownerTwoName">Owner 2 Name:</label>
+        <input class="form-control" id="ownerTwoName" name="ownerTwoName" type="text" nbInput fullWidth shape="semi-round" placeholder="Owner 2 Name" [(ngModel)]="enrollment.client.ownerTwoName" autocomplete="na">
+    </div>
+
+    <div class="form-input form-group">
+        <label for="billingAddress">Billing Address:</label>
+        <input class="form-control" id="billingAddress" name="billingAddress" type="text" nbInput fullWidth shape="semi-round" placeholder="Billing Address" autocomplete="na"  [(ngModel)]="enrollment.client.contactInformation.addressLine1">
+    </div>
+
+    <div class="form-input form-group">
+        <label for="city">City:</label>
+        <input class="form-control" id="city" name="city" type="text" nbInput fullWidth shape="semi-round" placeholder="City" autocomplete="na" [(ngModel)]="enrollment.client.contactInformation.cityName">
+    </div>
+
+    <div class="row">
+        <div class="col form-input form-group">
+                <label for="stateprovince">State / Province:</label>
+                <nb-select selected="0" id="stateprovince" name="stateprovince" [(ngModel)]="enrollment.client.contactInformation.regionName">
+                    <nb-option *ngFor="let state of statesList" [value]="state.val">{{state.name}}</nb-option>
+                 </nb-select>
+        </div>
+        <div class="col form-input form-group">
+            <label for="postal">Postal Code:</label>
+            <input class="form-control" id="postal" name="postal" type="text" nbInput fullWidth shape="semi-round" placeholder="Postal Code" autocomplete="na" [(ngModel)]="enrollment.client.contactInformation.postalCode">
+        </div>
+    </div>
+
+    <div class="form-input form-group">
+        <label for="email">Email Address:</label>
+        <input class="form-control" id="email" name="email" type="email" nbInput fullWidth shape="semi-round" placeholder="Email" autocomplete="na" [(ngModel)]="enrollment.client.contactInformation.emailAddress">
+    </div>
+
+    <div class="form-input form-group">
+        <label for="homephone">Home Phone:</label>
+        <input class="form-control" id="homephone" name="homephone" type="tel" nbInput fullWidth shape="semi-round" placeholder="555-555-55555" autocomplete="na" [(ngModel)]="enrollment.client.contactInformation.homePhoneNumber">
+    </div>
+
+    <div class="form-input form-group">
+        <label for="cellphone">Cell Phone:</label>
+        <input class="form-control" id="cellphone" name="cellphone" type="tel" nbInput fullWidth shape="semi-round" placeholder="555-555-55555" autocomplete="na" [(ngModel)]="enrollment.client.contactInformation.cellPhoneNumber">
+    </div>
+<div class="form-input continue">
+    <button nbButton default status="primary" (click)="toggleNext.emit('custInfo')"><nb-icon icon="arrow-circle-right-outline"></nb-icon> Continue</button>
+</div>

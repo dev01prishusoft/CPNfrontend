@@ -1,0 +1,69 @@
+
+<div class="form-input form-group">
+    <label for="propertyName">Property Name:</label>
+    <input class="form-control" id="propertyName" name="propertyName" type="text" nbInput fullWidth shape="semi-round" placeholder="Property Name" [(ngModel)]="enrollment.productEnrollmentDetails.propertyName">
+</div>
+<div class="form-input form-group" *ngIf="isMaintFree || isWalkaway">
+    <label for="unitSize">Unit Size:</label>
+    <nb-select selected="0" id="unitSize" name="unitSize" [(ngModel)]="enrollment.productEnrollmentDetails.unitSize">
+        <nb-option value="0">Select Unit Size</nb-option>
+        <nb-option value="1">1 Bedroom</nb-option>
+        <nb-option value="2">2 Bedroom</nb-option>
+        <nb-option value="3">3 Bedroom</nb-option>
+        <nb-option value="4">4 Bedroom</nb-option>
+        <nb-option value="5">5+ Bedroom</nb-option>
+     </nb-select>
+</div>
+<div class="form-input form-group" *ngIf="isMaintFree || isWalkaway">
+    <label for="amountPaid">Amount Paid:</label>
+    <input type="number" class="form-control" nbInput fullWidth shape="semi-round" name="amountPaid" id="amountPaid" placeholder="Amount Paid for Property" [(ngModel)]="enrollment.productEnrollmentDetails.amountPaidForProperty">
+</div>  
+<div class="form-input form-group" *ngIf="isMaintFree">
+    <label for="numweeks">Number of weeks being enrolled:</label>
+    <input type="number" class="form-control" nbInput fullWidth shape="semi-round" name="numweeks" id="numweeks" placeholder="Number of weeks being enrolled" [(ngModel)]="enrollment.productEnrollmentDetails.numberOfWeeksBeingEnrolled">
+</div>  
+<div class="form-input form-group" *ngIf="isMaintFree">
+    <label for="season">Season:</label>
+    <nb-select selected="0" id="season" name="season" [(ngModel)]="enrollment.productEnrollmentDetails.season">
+        <nb-option value="0">Select Season</nb-option>
+        <nb-option value="spring">Spring</nb-option>
+        <nb-option value="summer">Summer</nb-option>
+        <nb-option value="winter">Winter</nb-option>
+        <nb-option value="fall">Fall</nb-option>
+     </nb-select>
+</div>
+<div class="form-input form-group" *ngIf="isMaintFree">
+    <div class="split-form">
+        <div class="left form-input-label">Fixed Week:</div>
+        <div class="right">
+                <input name="fixedweek" ng-control="options" type="radio" [value]="true"  [(ngModel)]="enrollment.productEnrollmentDetails.fixedWeek" > YES &nbsp;
+                <input name="fixedweek" ng-control="options" type="radio" [value]="false" [(ngModel)]="enrollment.productEnrollmentDetails.fixedWeek" > NO
+        </div>
+    </div>
+</div>
+<div class="form-input form-group" *ngIf="isMaintFree">
+    <label for="maintfee">Maintenance Fee - In USD:</label>
+    <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">$</div>
+        </div>
+        <input type="number" class="form-control" nbInput fullWidth shape="semi-round" name="maintfee" id="maintfee" placeholder="Maintenance Fee" [(ngModel)]="enrollment.productEnrollmentDetails.maintananceFee">
+    </div>
+    
+</div>  
+<div class="form-input form-group" *ngIf="isMaintFree">
+    <label for="maintfreq">Maintenance Fee Frequency:</label>
+    <nb-select selected="0" id="maintfreq" name="maintfreq" [(ngModel)]="enrollment.productEnrollmentDetails.maintenanceFeeFrequency">
+        <nb-option value="0">Select Maintenance Fee Frequency</nb-option>
+        <nb-option value="monthly">Monthly</nb-option>
+        <nb-option value="quarterly">Quarterly</nb-option>
+        <nb-option value="semiannually">Semi-Annually</nb-option>
+        <nb-option value="yearly">Yearly</nb-option>
+     </nb-select>
+</div>
+
+<ngx-authorized-users [(authorizedUsers)]="enrollment.productEnrollmentDetails.authorizedUsers"  *ngIf="isFlyback"></ngx-authorized-users>
+
+<div class="form-input continue">
+    <button nbButton default status="primary" (click)="toggleNext.emit('propertyInfo')"><nb-icon icon="arrow-circle-right-outline"></nb-icon> Continue</button>
+</div>

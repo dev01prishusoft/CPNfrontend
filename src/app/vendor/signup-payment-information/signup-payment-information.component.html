@@ -1,0 +1,28 @@
+<div class="form-input form-group">
+    <label for="cardName">Name as it appears on your credit card:</label>
+    <input class="form-control" id="cardName" name="cardName" type="text" nbInput fullWidth shape="semi-round" placeholder="i.e. First Last" [(ngModel)]="enrollment.client.cardFirstName" autocomplete="na">
+</div>
+
+<div class="row">
+    <div class="form-input form-group col-4">
+        <label for="ccNum">Credit Card Number (TEST ONLY):</label>
+        <input class="form-control" id="ccNum" name="ccNum" type="text" nbInput fullWidth shape="semi-round" placeholder="TEST CREDIT CARDS ONLY DO NOT USE REAL INFO" [(ngModel)]="enrollment.client.cardNumber" autocomplete="na">
+    </div>
+    <div class="form-input form-group col-3">
+        <label for="ccNum">CVV (TEST):</label>
+        <input class="form-control" id="ccNum" name="ccNum" type="text" nbInput fullWidth shape="semi-round" placeholder="TEST CVV" [(ngModel)]="enrollment.client.cardCVV" autocomplete="na">
+    </div>
+    <div class="form-input form-group col-3">
+        <label for="zip">Postal Code:</label>
+        <input class="form-control" id="zip" name="zip" type="text" nbInput fullWidth shape="semi-round" placeholder="Postal Code" [(ngModel)]="enrollment.client.cardZip" autocomplete="na">
+    </div>
+</div>
+
+<div class="form-input form-group">
+    <label for="sales">Salesperson Name:</label>
+    <input class="form-control" id="sales" name="sales" type="text" nbInput fullWidth shape="semi-round" placeholder="Firstname Lastname" [(ngModel)]="enrollment.salesPerson" autocomplete="na">
+</div>
+
+<div class="form-input continue">
+    <button nbButton default status="primary" (click)="toggleNext.emit('paymentInfo')"><nb-icon icon="arrow-circle-right-outline"></nb-icon> Continue</button>
+</div>

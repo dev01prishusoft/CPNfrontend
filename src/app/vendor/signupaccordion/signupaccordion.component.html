@@ -1,0 +1,45 @@
+<div class="accordions-container row">
+    
+    <h3>Signup |  {{product.productName}}</h3>
+    <div class="accordion-container col-md-12" *ngIf="enrollment">
+      <nb-accordion>
+        <nb-accordion-item #propinfo>
+          <nb-accordion-item-header>
+            Property Information
+          </nb-accordion-item-header>
+          <nb-accordion-item-body>
+            <ngx-signup-property-information [(enrollment)]="enrollment" (toggleNext)="toggleNext($event)"></ngx-signup-property-information>
+          </nb-accordion-item-body>
+        </nb-accordion-item>
+  
+        <nb-accordion-item #custinfo>
+          <nb-accordion-item-header>
+            Customer Information
+          </nb-accordion-item-header>
+          <nb-accordion-item-body>
+            <ngx-signup-customer-information  [(enrollment)]="enrollment" (toggleNext)="toggleNext($event)"></ngx-signup-customer-information>
+          </nb-accordion-item-body>
+        </nb-accordion-item>
+  
+        <nb-accordion-item #paymentinfo>
+          <nb-accordion-item-header>
+            Payment Information
+          </nb-accordion-item-header>
+          <nb-accordion-item-body>
+            <ngx-signup-payment-information  [(enrollment)]="enrollment" (toggleNext)="toggleNext($event)"></ngx-signup-payment-information>
+          </nb-accordion-item-body>
+        </nb-accordion-item>
+
+        <nb-accordion-item #reviewinfo>
+            <nb-accordion-item-header>
+              Review & Complete Order
+            </nb-accordion-item-header>
+            <nb-accordion-item-body>
+                <ngx-signup-summary-information  [(enrollment)]="enrollment" (toggleNext)="toggleNext($event)"></ngx-signup-summary-information>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+
+      </nb-accordion>
+    </div>
+  </div>
+  

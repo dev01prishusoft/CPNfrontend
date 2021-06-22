@@ -1,0 +1,37 @@
+<div class="form-input form-group row">
+    <div class="col-2"><h5>Guests</h5></div>
+    <div class="col-3" style="padding-top: 8px;">
+        <nb-action (click)="toggleAddGuest()" style="cursor: pointer;">
+            <nb-icon class="action-icon" icon="plus-circle-outline"></nb-icon>
+            <span>Add</span>
+        </nb-action>
+    </div>
+</div>
+<div>
+
+<div class="form-input form-group authUser" *ngFor="let u of authorizedUsers;let indexOfelement=index;">
+    {{u.firstName}} &nbsp; <a href="javascript:void(0);" (click)="deleteGuest(indexOfelement)">Delete</a>
+</div>
+<div class="addFlyer" *ngIf="showAddGuest">
+    <div class="form-input form-group">
+        <input class="form-control" id="propertyName" name="name" type="text" nbInput fullWidth shape="semi-round" placeholder="Name" [(ngModel)]="name">
+    </div>
+    <div class="form-input form-group">
+        <input class="form-control" id="city" name="city" type="text" nbInput fullWidth shape="semi-round" placeholder="City" [(ngModel)]="city">
+    </div>
+    <div class="row">
+        <div class="col form-input form-group">
+                <label for="stateprovince">State / Province:</label>
+                <nb-select selected="0" id="stateprovince" name="stateprovince" [(ngModel)]="state">
+                    <nb-option *ngFor="let state of statesList" [value]="state.val">{{state.name}}</nb-option>
+                 </nb-select>
+        </div>
+        <div class="col form-input form-group">
+            <label for="postal">Postal Code:</label>
+            <input class="form-control" id="postal" name="postal" type="text" nbInput fullWidth shape="semi-round" placeholder="Postal Code" autocomplete="na" [(ngModel)]="postalCode">
+        </div>
+    </div>
+    <div class="form-input continue">
+        <button nbButton default status="success" (click)="addGuest()"><nb-icon icon="person-done-outline"></nb-icon> Add Guest</button>
+    </div>
+</div>

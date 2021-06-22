@@ -1,0 +1,22 @@
+<h3 class="spacedh3">Signup Complete!</h3>
+
+<h5 class="spacedh5">Print Forms</h5>
+
+<div class="spacer">
+    <button id="btnForm" nbButton outline (click)="generateFormOne()" status="info"><nb-icon icon="file-outline"></nb-icon>
+        Form 1
+    </button> 
+    
+    <button nbButton outline id="btnForm" (click)="generateFormTwo()" status="info"><nb-icon icon="file-outline"></nb-icon> Form 2</button>
+</div>
+
+<div class="form-input form-group">
+    <label for="notes">Notes:</label>
+    <textarea rows="3" maxlength="400" class="form-control" nbInput fullWidth shape="semi-round" name="notes" id="notes" placeholder="Enter notes on the transaction here" 
+        [(ngModel)]="enrollment.notes"></textarea>
+</div>  
+
+<div class="form-input continue">
+    <button nbButton default (click)="toggleNext.emit('reviewInfoCancel')" style="margin: 10px;"><nb-icon icon="close-circle-outline"></nb-icon> Cancel</button>
+    <button nbButton default status="success" style="margin: 10px;" (click)="toggleNext.emit('reviewInfoComplete')"><nb-icon icon="checkmark-circle-2-outline"></nb-icon> Finish and Pay</button>
+</div>
